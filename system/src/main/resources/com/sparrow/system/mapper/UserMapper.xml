@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sparrow.system.mapper.UserMapper">
+
+    <resultMap id="UserMap" type="com.sparrow.system.domain.User">
+        <id property="id" column="id" />
+        <result property="create_time" column="createTime"/>
+        <result property="update_time" column="updateTime"/>
+        <result property="user_name" column="userName"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+    <resultMap id="UserVoMap" type="com.sparrow.system.domain.vo.UserVo" extends="UserMap">
+
+    </resultMap>
+
+    <insert id="addUser">
+        insert into user (id, create_time, update_time, user_name, password)
+        values(#{id}, #{createTime}, #{updateTime}, #{userName}, #{password})
+    </insert>
+
+</mapper>
